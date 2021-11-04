@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorSurface"
+    tools:context=".Dimensions">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?colorPrimaryDark"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/backButton"
+            android:src="@drawable/ic_arrow_back_ios_24px"
+            app:tint="?colorSurface"
+            android:layout_marginStart="16dp"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Dimensions"
+            android:textColor="?colorSurface"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Order for :"
+        android:textColor="?colorOnBackground"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <RadioButton
+        android:id="@+id/forladies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Ladies"
+        android:textColor="?colorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <RadioButton
+        android:id="@+id/forgents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Gents"
+        android:textColor="?colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/forladies"
+        app:layout_constraintStart_toEndOf="@+id/forladies"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.476" />
+
+    <RadioButton
+        android:id="@+id/forkids"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Kids"
+        android:textColor="?colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/forgents"
+        app:layout_constraintStart_toEndOf="@+id/forgents"
+        app:layout_constraintTop_toTopOf="@+id/forgents" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/armlengthfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:hint="Arm length"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forladies"
+        app:layout_constraintWidth_percent="0.4"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/armlength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shoulderlengthfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Shoulder width"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/armlengthfield"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/armlengthfield"
+        app:layout_constraintTop_toTopOf="@+id/armlengthfield"
+        app:layout_constraintWidth_percent="0.4"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoulderlength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/chestfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Chest width"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="@+id/armlengthfield"
+        app:layout_constraintStart_toStartOf="@+id/armlengthfield"
+        app:layout_constraintTop_toBottomOf="@+id/armlengthfield"
+        app:layout_constraintWidth_percent="0.4"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/chest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shirtfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Shirt length"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/chestfield"
+        app:layout_constraintEnd_toEndOf="@+id/shoulderlengthfield"
+        app:layout_constraintStart_toStartOf="@+id/shoulderlengthfield"
+        app:layout_constraintTop_toTopOf="@+id/chestfield"
+        app:layout_constraintWidth_percent="0.4"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shirt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/waistfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Waist"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="@+id/chestfield"
+        app:layout_constraintStart_toStartOf="@+id/chestfield"
+        app:layout_constraintTop_toBottomOf="@+id/chestfield"
+        app:layout_constraintWidth_percent="0.4"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/waist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/legfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Leg length"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/waistfield"
+        app:layout_constraintEnd_toEndOf="@+id/shirtfield"
+        app:layout_constraintStart_toStartOf="@+id/shirtfield"
+        app:layout_constraintTop_toTopOf="@+id/waistfield"
+        app:layout_constraintWidth_percent="0.4"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/leg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/instructionfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Extra instructions"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="@+id/legfield"
+        app:layout_constraintStart_toStartOf="@+id/waistfield"
+        app:layout_constraintTop_toBottomOf="@+id/waistfield"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/extrainstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkboxpockets"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Pocket"
+        android:textColor="?colorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/instructionfield"
+        app:layout_constraintTop_toBottomOf="@+id/instructionfield" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkboxvneck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="V-neck"
+        android:textColor="?colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/checkboxpockets"
+        app:layout_constraintStart_toEndOf="@+id/checkboxpockets"
+        app:layout_constraintTop_toTopOf="@+id/checkboxpockets" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonConfirmDimensions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Confirm"
+        app:layout_constraintEnd_toEndOf="@+id/instructionfield"
+        app:layout_constraintStart_toStartOf="@+id/instructionfield"
+        app:layout_constraintTop_toBottomOf="@+id/checkboxpockets" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

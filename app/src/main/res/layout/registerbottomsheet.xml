@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registerbottomsheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    android:background="?colorSurface"
+    app:behavior_peekHeight="39dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimaryVariant"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/simplifica_typeface"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:text="Create New Account"
+            android:textColor="?colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/header_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_baseline_keyboard_arrow_up_24" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"
+        app:srcCompat="@drawable/fashionladyxml" />
+
+    <RelativeLayout
+        android:id="@+id/registercontainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="230dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_layout">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEditTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="35dp"
+            android:hint="Email address"
+            app:boxBackgroundColor="?colorSurface"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:endIconMode="clear_text"
+            app:hintEnabled="true"
+            app:hintTextColor="?colorPrimaryDark"
+            app:startIconDrawable="@drawable/icon_email"
+            app:startIconTint="?colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailr"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEditTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textInputEditTextEmail"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="35dp"
+            android:hint="Create password"
+            app:boxBackgroundColor="?colorSurface"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="?colorOnSecondary"
+            app:hintEnabled="true"
+            app:hintTextColor="?colorPrimaryDark"
+            app:startIconDrawable="@drawable/icon_password"
+            app:startIconTint="?colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordr"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEditTextPasswordRe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textInputEditTextPassword"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="35dp"
+            android:hint="Confirm password"
+            app:boxBackgroundColor="?colorSurface"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="?colorOnSecondary"
+            app:hintEnabled="true"
+            app:hintTextColor="?colorPrimaryDark"
+            app:startIconDrawable="@drawable/icon_password"
+            app:startIconTint="?colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordrer"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radiocustomer"
+            android:layout_below="@id/textInputEditTextPasswordRe"
+            android:layout_alignStart="@id/textInputEditTextEmail"
+            android:layout_marginStart="16dp"
+            android:text="Customer"
+            android:enabled="true"
+            android:textColor="?colorPrimary"
+            android:textSize="12sp"/>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radiotailor"
+            android:layout_below="@id/textInputEditTextPasswordRe"
+            android:layout_toRightOf="@id/radiocustomer"
+            android:layout_marginStart="24dp"
+            android:text="Tailor"
+            android:enabled="true"
+            android:textColor="?colorPrimary"
+            android:textSize="12sp"/>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioadmin"
+            android:layout_below="@id/textInputEditTextPasswordRe"
+            android:layout_toRightOf="@id/radiotailor"
+            android:layout_marginStart="24dp"
+            android:text="Admin"
+            android:visibility="gone"
+            android:enabled="true"
+            android:textColor="?colorPrimary"
+            android:textSize="12sp"/>
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radiocustomer"
+            android:layout_alignStart="@id/textInputEditTextEmail"
+            android:layout_alignEnd="@id/textInputEditTextEmail"
+            android:layout_marginTop="4dp"
+            android:text="Register"
+            android:textSize="20dp" />
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

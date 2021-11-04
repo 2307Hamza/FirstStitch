@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorSurface"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    tools:context=".SignIn">
+
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="3"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/machinewithoutlacesxml" />
+
+    <RelativeLayout
+        android:id="@+id/signincontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogo"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEditTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="35dp"
+            android:hint="Email address"
+            app:boxBackgroundColor="?colorSurface"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:endIconMode="clear_text"
+            app:hintEnabled="true"
+            app:hintTextColor="?colorPrimaryDark"
+            app:startIconDrawable="@drawable/icon_email"
+            app:startIconTint="?colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emails"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputEditTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textInputEditTextEmail"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="35dp"
+            android:hint="Password"
+            app:boxBackgroundColor="?colorSurface"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:endIconMode="password_toggle"
+            app:endIconTint="?colorOnSecondary"
+            app:hintEnabled="true"
+            app:hintTextColor="?colorPrimaryDark"
+            app:startIconDrawable="@drawable/icon_password"
+            app:startIconTint="?colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwords"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonSignin"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textInputEditTextPassword"
+            android:layout_alignStart="@id/textInputEditTextEmail"
+            android:layout_alignEnd="@id/textInputEditTextEmail"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="12dp"
+            android:text="Sign In"
+            android:textSize="20dp" />
+
+        <!--<EditText
+            android:id="@+id/editTextEmail"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="15"
+            android:fontFamily="@font/simplifica_typeface"
+            android:hint=" Email"
+            android:inputType="textEmailAddress"
+            android:textSize="18sp" />-->
+
+        <!--<EditText
+            android:id="@+id/editTextPassword"
+            android:layout_below="@id/editTextEmail"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="15"
+            android:fontFamily="@font/simplifica_typeface"
+            android:hint=" Password"
+            android:inputType="textPassword"
+            android:textSize="18sp"/>-->
+
+        <!--<Button
+            android:id="@+id/buttonRegister"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/editTextPassword"
+            android:layout_alignStart="@id/editTextEmail"
+            android:layout_alignEnd="@id/editTextEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/register_button_bg"
+            android:fontFamily="@font/medio"
+            android:text="Sign In"
+            android:textSize="30sp"/>-->
+    </RelativeLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/registerbottomlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo">
+
+        <include layout="@layout/registerbottomsheet" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

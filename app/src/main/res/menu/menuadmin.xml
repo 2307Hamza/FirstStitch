@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemFabric"
+        android:icon="@drawable/ic_store_24px"
+        android:title="Fabrics" />
+    <item
+        android:id="@+id/itemUsers"
+        android:icon="@drawable/ic_baseline_supervised_user_circle_24"
+        android:title="Users" />
+    <item
+        android:id="@+id/itemPendingOrders"
+        android:icon="@drawable/ic_baseline_playlist_add_24"
+        android:title="Pending" />
+    <item
+        android:id="@+id/itemCompletedOrders"
+        android:icon="@drawable/ic_baseline_playlist_add_check_24"
+        android:title="Completed" />
+    <item
+        android:id="@+id/itemMe"
+        android:icon="@drawable/ic_person_pin_24px"
+        android:title="Me" />
+</menu>

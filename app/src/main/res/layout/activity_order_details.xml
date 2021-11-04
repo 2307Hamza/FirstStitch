@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorSurface"
+    tools:context=".OrderDetails">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?colorPrimaryDark"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_arrow_back_ios_24px"
+            app:tint="?colorSurface" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Order Details"
+            android:textColor="?colorSurface"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/imageViewFabric"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/framemain"
+        android:padding="2dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.22"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintWidth_percent="0.41"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tailornamefield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Tailor Details"
+        android:visibility="visible"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewFabric"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tailordetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/customernamefield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Customer Details"
+        android:visibility="visible"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewFabric"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tailornamefield"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/customerdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/armlengthfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Arm length"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/shoulderlengthfield"
+        app:layout_constraintEnd_toStartOf="@+id/shoulderlengthfield"
+        app:layout_constraintTop_toTopOf="@+id/shoulderlengthfield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/armlength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fabricnamefield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Fabric name"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/shoulderlengthfield"
+        app:layout_constraintEnd_toStartOf="@+id/armlengthfield"
+        app:layout_constraintTop_toTopOf="@+id/shoulderlengthfield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fabricname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fabriccostfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Fabric cost"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/fabrictypefield"
+        app:layout_constraintStart_toStartOf="@+id/fabricnamefield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fabriccost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fabrictypefield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Fabric Type"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/instructionfield"
+        app:layout_constraintEnd_toStartOf="@+id/armlengthfield"
+        app:layout_constraintStart_toStartOf="@+id/fabricnamefield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fabrictype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shoulderlengthfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Shoulder"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/shirtfield"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shoulderlength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/chestfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Chest width"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/waistfield"
+        app:layout_constraintEnd_toEndOf="@+id/armlengthfield"
+        app:layout_constraintStart_toStartOf="@+id/armlengthfield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/chest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/shirtfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Shirt length"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/chestfield"
+        app:layout_constraintEnd_toEndOf="@+id/shoulderlengthfield"
+        app:layout_constraintStart_toStartOf="@+id/shoulderlengthfield"
+        app:layout_constraintTop_toTopOf="@+id/chestfield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/shirt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/waistfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Waist"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/instructionfield"
+        app:layout_constraintEnd_toEndOf="@+id/chestfield"
+        app:layout_constraintStart_toStartOf="@+id/chestfield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/waist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/legfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Leg length"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/waistfield"
+        app:layout_constraintEnd_toEndOf="@+id/shirtfield"
+        app:layout_constraintStart_toStartOf="@+id/shirtfield"
+        app:layout_constraintTop_toTopOf="@+id/waistfield"
+        app:layout_constraintWidth_percent="0.3"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/leg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/instructionfield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Extra instructions"
+        app:boxBackgroundColor="?colorSurface"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusTopEnd="14dp"
+        app:boxCornerRadiusTopStart="14dp"
+        app:hintEnabled="true"
+        app:hintTextColor="?colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStatusChangeButton"
+        app:layout_constraintEnd_toEndOf="@+id/legfield"
+        app:layout_constraintStart_toStartOf="@+id/fabricnamefield"
+        app:startIconTint="?colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/extrainstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonStatusChangeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Status Change"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/instructionfield"
+        app:layout_constraintStart_toStartOf="@+id/instructionfield" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

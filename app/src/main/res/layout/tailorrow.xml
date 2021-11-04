@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?colorSurface">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fabricItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewDummypic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_person_24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?colorPrimary" />
+
+        <TextView
+            android:id="@+id/rowtailorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="User name"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="?colorOnSurface"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/imageViewDummypic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rowtailorrphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="0123-1231231"
+            android:textAlignment="center"
+            android:textColor="?colorOnSecondary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rowtailorname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rowtailorname" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_phone_24px"
+            app:layout_constraintBottom_toBottomOf="@+id/rowtailorrphone"
+            app:layout_constraintEnd_toStartOf="@+id/rowtailorrphone"
+            app:layout_constraintTop_toTopOf="@+id/rowtailorrphone"
+            app:tint="?colorPrimary" />
+
+        <TextView
+            android:id="@+id/rowtailorspeciality"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="Specializes in Ladies and Men's clothing"
+            android:textColor="?colorOnBackground"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSpeciality"
+            app:layout_constraintTop_toBottomOf="@+id/rowtailorname" />
+
+        <ImageView
+            android:id="@+id/imageViewSpeciality"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_baseline_star_24"
+            app:layout_constraintBottom_toBottomOf="@+id/rowtailorspeciality"
+            app:layout_constraintStart_toStartOf="@+id/rowtailorname"
+            app:layout_constraintTop_toTopOf="@+id/rowtailorspeciality"
+            app:tint="?colorPrimary" />
+
+        <ImageView
+            android:id="@+id/imageViewAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintBottom_toBottomOf="@+id/rowtailoraddress"
+            app:layout_constraintStart_toStartOf="@+id/rowtailorname"
+            app:layout_constraintTop_toTopOf="@+id/rowtailoraddress"
+            app:tint="?colorPrimary" />
+
+        <TextView
+            android:id="@+id/rowtailoraddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="This is the adress of a tailor shop"
+            android:textColor="?colorOnBackground"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/rowtailorspeciality"
+            app:layout_constraintStart_toEndOf="@+id/imageViewAddress"
+            app:layout_constraintTop_toBottomOf="@+id/rowtailorspeciality" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/separatormain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

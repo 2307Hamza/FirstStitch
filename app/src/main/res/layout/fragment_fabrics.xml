@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fabricsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorPrimaryDark">
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:elevation="6dp"
+            android:outlineAmbientShadowColor="?colorOnBackground"
+            android:background="?colorSurface"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Fabrics"
+                android:textColor="?colorOnBackground"
+                android:textSize="20sp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:padding="8dp"
+                android:src="@drawable/logo"/>
+        </RelativeLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="8dp"
+            android:id="@+id/recycleviewfabricsadmin"
+            android:layout_width="match_parent"
+            android:background="?colorSurface"
+            android:layout_height="match_parent"
+            android:layout_below="@id/header"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:backgroundTint="?colorPrimary"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:padding="4dp"
+            android:background="@drawable/circlemain"
+            android:src="@drawable/ic_baseline_add_24"
+            android:id="@+id/fabaddfabricadmin"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profileFragment">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="?colorPrimaryDark"
+       android:orientation="vertical"
+       android:weightSum="10">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:elevation="6dp"
+           android:outlineAmbientShadowColor="?colorOnBackground"
+           android:background="?colorSurface"
+           android:layout_height="50dp">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="20dp"
+               android:text="Profile"
+               android:textColor="?colorOnBackground"
+               android:textSize="20sp"
+               android:layout_alignParentStart="true"
+               android:layout_centerVertical="true"/>
+
+           <ImageView
+               android:layout_width="60dp"
+               android:layout_height="wrap_content"
+               android:layout_alignParentEnd="true"
+               android:layout_marginEnd="10dp"
+               android:padding="8dp"
+               android:src="@drawable/logo"/>
+       </RelativeLayout>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="4"
+           android:layout_marginTop="0.5dp"
+           android:background="?colorSurface"
+           android:id="@+id/profileSection"
+           >
+
+           <ImageView
+               android:id="@+id/imageViewPerson"
+               android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="16dp"
+               android:src="@drawable/ic_contacts_24px"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:tint="?colorPrimary" />
+
+
+           <TextView
+               android:id="@+id/textUsername"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="8dp"
+               android:text="User name"
+               android:textColor="?colorOnSecondary"
+               android:textSize="18sp"
+               app:layout_constraintBottom_toBottomOf="@+id/imageViewPerson"
+               app:layout_constraintStart_toEndOf="@+id/imageViewPerson"
+               app:layout_constraintTop_toTopOf="@id/imageViewPerson" />
+
+
+           <ImageView
+               android:id="@+id/imageViewPhone"
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:layout_marginTop="12dp"
+               android:src="@drawable/ic_phone_24px"
+               app:layout_constraintEnd_toEndOf="@+id/imageViewPerson"
+               app:layout_constraintStart_toStartOf="@+id/imageViewPerson"
+               app:layout_constraintTop_toBottomOf="@+id/imageViewPerson"
+               app:tint="?colorPrimary" />
+
+           <TextView
+               android:id="@+id/textPhone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="0123-1231231"
+               android:textColor="?colorOnSecondary"
+               android:textSize="14sp"
+               app:layout_constraintBottom_toBottomOf="@+id/imageViewPhone"
+               app:layout_constraintStart_toStartOf="@+id/textUsername"
+               app:layout_constraintTop_toTopOf="@id/imageViewPhone" />
+
+           <ImageView
+               android:id="@+id/imageViewAddress"
+               android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:layout_marginTop="16dp"
+               android:src="@drawable/ic_baseline_location_on_24"
+               app:layout_constraintEnd_toEndOf="@+id/imageViewPerson"
+               app:layout_constraintStart_toStartOf="@+id/imageViewPerson"
+               app:layout_constraintTop_toBottomOf="@+id/imageViewPhone"
+               app:tint="?colorPrimary" />
+
+           <TextView
+               android:id="@+id/textAddress"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginEnd="24dp"
+               android:inputType="textMultiLine"
+               android:text="Address,Address,Address,AddressAddress,Address,Address"
+               android:textColor="?colorOnSecondary"
+               android:textSize="14sp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="@+id/textUsername"
+               app:layout_constraintTop_toTopOf="@id/imageViewAddress" />
+
+           <ImageView
+               android:visibility="gone"
+               android:id="@+id/imageViewSpeciality"
+               android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:layout_marginTop="16dp"
+               android:src="@drawable/ic_baseline_star_24"
+               app:layout_constraintEnd_toEndOf="@+id/imageViewPerson"
+               app:layout_constraintStart_toStartOf="@+id/imageViewPerson"
+               app:layout_constraintTop_toBottomOf="@+id/imageViewAddress"
+               app:tint="?colorPrimary" />
+
+           <TextView
+               android:visibility="gone"
+               android:id="@+id/textSpeciality"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginEnd="24dp"
+               android:inputType="text"
+               android:text="Ladies, Gents"
+               android:textColor="?colorOnSecondary"
+               android:textSize="14sp"
+               app:layout_constraintBottom_toBottomOf="@+id/imageViewSpeciality"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="@+id/textUsername"
+               app:layout_constraintTop_toTopOf="@id/imageViewSpeciality" />
+
+           <ImageView
+               android:id="@+id/imageEditProfile"
+               android:layout_width="34dp"
+               android:layout_height="34dp"
+               android:layout_marginTop="16dp"
+               android:layout_marginEnd="16dp"
+               android:background="@drawable/circlemain"
+               android:padding="6dp"
+               android:src="@drawable/ic_edit_24px"
+               app:tint="?colorSurface"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:id="@+id/themeSection"
+       android:background="?colorSurface"
+       android:layout_weight="3">
+
+           <ImageView
+               android:id="@+id/separator1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:background="@drawable/separatormain"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:id="@+id/themeTextView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="16dp"
+               android:layout_marginTop="16dp"
+               android:text="Themes"
+               android:textColor="?colorOnBackground"
+               android:textSize="20sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <RadioButton
+               android:id="@+id/themePink"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="24dp"
+               android:layout_marginTop="8dp"
+               android:text="Pink"
+               android:buttonTint="@color/cmainpink"
+               android:textColor="@color/cmainpink"
+               app:layout_constraintStart_toStartOf="@+id/themeTextView"
+               app:layout_constraintTop_toBottomOf="@+id/themeTextView" />
+
+           <RadioButton
+               android:id="@+id/themeLime"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="24dp"
+               android:buttonTint="@color/cmainlime"
+               android:text="Lime"
+               android:textColor="@color/cmaindarkestlime"
+               app:layout_constraintBottom_toBottomOf="@id/themePink"
+               app:layout_constraintStart_toEndOf="@+id/themePink"
+               app:layout_constraintTop_toTopOf="@+id/themePink" />
+
+           <RadioButton
+               android:id="@+id/themeBlack"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="24dp"
+               android:buttonTint="@color/cmainblack"
+               android:text="Black"
+               android:textColor="@color/cmainblack"
+               app:layout_constraintBottom_toBottomOf="@+id/themePink"
+               app:layout_constraintStart_toEndOf="@+id/themeLime"
+               app:layout_constraintTop_toTopOf="@+id/themePink" />
+
+           <RadioButton
+               android:id="@+id/themePinkDark"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="24dp"
+               android:layout_marginTop="2dp"
+               android:buttonTint="@color/cmainpink"
+               android:text="Pink +"
+               android:textColor="@color/cmainpink"
+               app:layout_constraintStart_toStartOf="@+id/themeTextView"
+               app:layout_constraintTop_toBottomOf="@+id/themePink" />
+
+           <RadioButton
+               android:id="@+id/themeLimeDark"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:buttonTint="@color/cmainlime"
+               android:text="Lime +"
+               android:textColor="@color/cmaindarkestlime"
+               app:layout_constraintBottom_toBottomOf="@id/themePinkDark"
+               app:layout_constraintStart_toStartOf="@+id/themeLime"
+               app:layout_constraintTop_toTopOf="@+id/themePinkDark" />
+
+           <RadioButton
+               android:id="@+id/themeBlackDark"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:buttonTint="@color/cmainblack"
+               android:text="Black +"
+               android:textColor="@color/cmainblack"
+               app:layout_constraintBottom_toBottomOf="@+id/themePinkDark"
+               app:layout_constraintStart_toStartOf="@+id/themeBlack"
+               app:layout_constraintTop_toTopOf="@+id/themePinkDark" />
+
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:id="@+id/logoutSection"
+           android:background="?colorSurface"
+           android:layout_weight="3">
+
+           <ImageView
+               android:id="@+id/separator"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/separatormain"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"/>
+
+           <ImageView
+               android:id="@+id/ImageLogout"
+               android:layout_width="30dp"
+               android:layout_height="30dp"
+               android:layout_alignParentTop="true"
+               android:layout_marginTop="24dp"
+               android:layout_marginStart="32dp"
+               android:src="@drawable/ic_baseline_exit_to_app_24"
+               app:tint="@color/design_default_color_error" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/textLogout"
+               android:layout_toRightOf="@id/ImageLogout"
+               android:layout_alignTop="@+id/ImageLogout"
+               android:layout_alignBottom="@+id/ImageLogout"
+               android:layout_marginStart="8dp"
+               android:layout_marginTop="2dp"
+               android:textColor="@color/design_default_color_error"
+               android:text="Logout"
+               android:textSize="16sp"/>
+
+       </RelativeLayout>
+
+   </LinearLayout>
+
+</FrameLayout>

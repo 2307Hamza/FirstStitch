@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="?colorSurface">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_weight="10"
+        android:layout_marginHorizontal="8dp"
+        android:id="@+id/fabricItem"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/framemain">
+
+        <ImageView
+            android:id="@+id/imageViewLatestFabricPic"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            app:layout_constraintWidth_percent="0.5"
+            android:padding="2dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/ic_baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rowLatestFabricName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Fabric name"
+            android:textAlignment="center"
+            android:textColor="?colorOnSurface"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rowLatestFabricDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:inputType="textMultiLine"
+            android:text="This is the decription of the latest fabric in our store"
+            android:textColor="?colorOnBackground"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewLatestFabricPic"
+            app:layout_constraintStart_toStartOf="@id/rowLatestFabricName"
+            app:layout_constraintTop_toBottomOf="@+id/rowLatestFabricName" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
