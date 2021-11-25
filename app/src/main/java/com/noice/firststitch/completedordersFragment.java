@@ -75,6 +75,7 @@ public class completedordersFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_completedorders, container, false);
     }
 
+    /*declaring required variables for the activity*/
     private List<Order> orderList;
     /*private List<Customer> customerList;
     private List<Tailor> tailorList;
@@ -97,18 +98,22 @@ public class completedordersFragment extends Fragment {
         tailorList=new ArrayList<>();
         fabricList=new ArrayList<>();*/
 
+        /*getting db instance*/
         database= FirebaseDatabase.getInstance();
         //referenceUser = database.getReference("Admin").child(g.getAdminID());
         //referenceFabric = database.getReference("Fabric");
 
+        /*attaching backend variables to frontend xml with ids*/
         ordersRV= (RecyclerView) view.findViewById(R.id.recycleviewcompletedorders);
         ordersRV.setHasFixedSize(false);
 
+        /*intializing recycler view*/
         orderlistAdaptor=new OrderlistAdaptor(orderList,getActivity());
         RecyclerView.LayoutManager layout= new LinearLayoutManager(getActivity());
         ordersRV.setLayoutManager(layout);
         ordersRV.setAdapter(orderlistAdaptor);
 
+        /*getting all orders data from database*/
         database.getReference("Order").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {

@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 
 public class suiteDimensions {
+    //members
     private String arm;
     private String shoulder;
     private String chest;
@@ -18,6 +19,7 @@ public class suiteDimensions {
     private boolean pocket;
     private boolean vneck;
 
+    //constructors
     public suiteDimensions(String arm, String shoulder, String chest, String shirt, String waist, String leg, String instructions, String type, boolean pocket, boolean vneck) {
         this.arm = arm;
         this.shoulder = shoulder;
@@ -34,6 +36,7 @@ public class suiteDimensions {
     public suiteDimensions() {
     }
 
+    //getters and setters
     public String getArm() {
         return arm;
     }

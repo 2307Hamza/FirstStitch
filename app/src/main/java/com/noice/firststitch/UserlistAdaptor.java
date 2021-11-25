@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class UserlistAdaptor extends RecyclerView.Adapter<UserlistAdaptor.UserlistViewholder> {
+    /*declaring required variables for the adaptor*/
     List<User> userList;
 
+    /*adaptor constructor*/
     public UserlistAdaptor(List<User> userList) {
         this.userList = userList;
     }
@@ -20,12 +22,14 @@ public class UserlistAdaptor extends RecyclerView.Adapter<UserlistAdaptor.Userli
     @NonNull
     @Override
     public UserlistViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        /*inflating row in recycler view*/
         View row= LayoutInflater.from(parent.getContext()).inflate(R.layout.userrow,parent,false);
         return new UserlistViewholder(row);
     }
 
     @Override
     public void onBindViewHolder(@NonNull UserlistViewholder holder, int position) {
+        /*binding date onto the recycler view*/
 
         holder.username.setText(userList.get(position).getUsername());
         holder.phone.setText(userList.get(position).getPhone());

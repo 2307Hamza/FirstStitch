@@ -2,11 +2,13 @@ package com.noice.firststitch;
 
 public class Customer {
 
+    //members
     private String customerID;
     private String username;
     private String phone;
     private String address;
 
+    //constructors
     public Customer(String customerID, String username, String phone, String address) {
         this.customerID = customerID;
         this.username = username;
@@ -17,6 +19,7 @@ public class Customer {
     public Customer() {
     }
 
+    //getters and setters
     public String getCustomerID() {
         return customerID;
     }

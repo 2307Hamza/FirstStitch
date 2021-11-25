@@ -1,11 +1,13 @@
 package com.noice.firststitch;
 
 public class User {
+    //members
     private String userID;
     private String username;
     private String phone;
     private String type;
 
+    //constructors
     public User(String userID, String username, String phone, String type) {
         this.userID = userID;
         this.username = username;
@@ -16,7 +18,7 @@ public class User {
     public User() {
     }
 
-
+    //getters and setters
     public String getUserID() {
         return userID;
     }

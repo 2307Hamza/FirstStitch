@@ -10,13 +10,6 @@
     <color name="cdarkblack">#32281E</color>
     <color name="clightblack">#A8A199</color>
 
-    <color name="colorPrimaryblack">#242429</color>
-    <color name="colorPrimaryDarkblack">#0C0409</color>
-    <color name="colorAccentblack">#A58961</color>
-    <color name="colorTertiaryblack">#53505A</color>
-    <color name="colorWhiteblack">#fff</color>
-    <color name="colorBlackblack">#000000</color>
-
     <!--//custom color scheme purple
     <color name="cmainmostdarkest">#1F023B</color>
     <color name="cmaindarkest">#2F0459</color>
@@ -42,13 +35,6 @@
     <color name="cdarklime">#513F2D</color>
     <color name="clightlime">#D5B290</color>
 
-    <color name="colorPrimarylime">#B7CA79</color>
-    <color name="colorPrimaryDarklime">#677E52</color>
-    <color name="colorAccentlime">#B0CC99</color>
-    <color name="colorTertiarylime">#F6E8B1</color>
-    <color name="colorWhitelime">#fff</color>
-    <color name="colorBlacklime">#000000</color>
-
     //custom color scheme pink
     <color name="cmainmostdarkestpink">#82414F</color>
     <color name="cmaindarkestpink">#C46277</color>
@@ -58,26 +44,9 @@
     <color name="cdarkpink">#5D5D5D</color>
     <color name="clightpink">#9A9A9A</color>
 
-    <color name="colorPrimarypink">#F16E96</color>
-    <color name="colorPrimaryDarkpink">#C46277</color>
-    <color name="colorAccentpink">#FDC2C8</color>
-    <color name="colorTertiarypink">#FC88AF</color>
-    <color name="colorWhitepink">#fff</color>
-    <color name="colorBlackpink">#000000</color>
-
     //custom color scheme pink
-    <color name="cmainmostdarkest">#82414F</color>
-    <color name="cmaindarkest">#C46277</color>
-    <color name="cmain">#F16E96</color>
-    <color name="cmainlight">#FDC2C8</color>
-    <color name="csec">#FC88AF</color>
-    <color name="cdark">#5D5D5D</color>
-    <color name="clight">#9A9A9A</color>
 
     <color name="colorPrimary">#F16E96</color>
-    <color name="colorPrimaryDark">#C46277</color>
-    <color name="colorAccent">#FDC2C8</color>
-    <color name="colorTertiary">#FC88AF</color>
     <color name="colorWhite">#fff</color>
     <color name="colorBlack">#000000</color>
 

@@ -36,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SignIn extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     private ConstraintLayout registerBottomSheet;
     private BottomSheetBehavior bottomSheetBehavior;
     private LinearLayout mHeaderLayout;
@@ -60,6 +61,7 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_sign_in);
         FullScreencall();
@@ -67,6 +69,7 @@ public class SignIn extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
 
+        /*attaching backend variables to frontend xml with ids*/
         emails=findViewById(R.id.emails);
         emailr=findViewById(R.id.emailr);
         passwords=findViewById(R.id.passwords);
@@ -82,6 +85,7 @@ public class SignIn extends AppCompatActivity {
         admin.setChecked(false);
 
 
+        /*attaching backend variables to frontend xml with ids*/
         registerBottomSheet=findViewById(R.id.registerbottomsheet);
         bottomSheetBehavior=BottomSheetBehavior.from(registerBottomSheet);
         mHeaderLayout = findViewById(R.id.header_layout);
@@ -97,6 +101,7 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
+        /*bottom sheet code for the activity*/
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -110,6 +115,7 @@ public class SignIn extends AppCompatActivity {
         });
 
 
+        /*signin button code for the activity*/
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -224,6 +230,7 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
+        /*register button code for the activity*/
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -392,6 +399,7 @@ public class SignIn extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

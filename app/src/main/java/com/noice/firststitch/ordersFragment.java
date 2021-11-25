@@ -78,6 +78,7 @@ public class ordersFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_orders, container, false);
     }
 
+    /*declaring required variables for the fragment*/
     private List<Order> orderList;
     /*private List<Customer> customerList;
     private List<Tailor> tailorList;
@@ -102,14 +103,18 @@ public class ordersFragment extends Fragment {
         //referenceUser = database.getReference("Admin").child(g.getAdminID());
         //referenceFabric = database.getReference("Fabric");
 
+        /*attaching backend variables to frontend xml with ids*/
+
         ordersRV= (RecyclerView) view.findViewById(R.id.recycleviewOrders);
         ordersRV.setHasFixedSize(false);
 
+        /*intializing recycler view*/
         orderlistAdaptor=new OrderlistAdaptor(orderList,getActivity());
         RecyclerView.LayoutManager layout= new LinearLayoutManager(getActivity());
         ordersRV.setLayoutManager(layout);
         ordersRV.setAdapter(orderlistAdaptor);
 
+        /*getting all Orders data from database*/
         database.getReference("Order").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -132,6 +137,7 @@ public class ordersFragment extends Fragment {
 
 
                 //while (orderList.size()<1 || tailorList.size()<1 || customerList.size()<1 || fabricList.size()<1);
+                /*updating recycler view*/
                 orderlistAdaptor=new OrderlistAdaptor(orderList,getActivity());
                 orderlistAdaptor.notifyDataSetChanged();
                 ordersRV.setAdapter(orderlistAdaptor);

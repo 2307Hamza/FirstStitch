@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllFabric extends AppCompatActivity {
-
+    /*delacaring required variables for the activity*/
     private List<Fabric> fabricList;
     private RecyclerView fabricRV;
     private FabricWholeAdaptor fabricWholeAdaptor;
@@ -32,13 +32,16 @@ public class AllFabric extends AppCompatActivity {
 
     private ImageView back;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_all_fabric);
         FullScreencall();
 
+        /*getting reference from firebase database*/
         database= FirebaseDatabase.getInstance();
         referenceUser = database.getReference("Customer").child(g.getCustomerID());
         referenceFabric = database.getReference("Fabric");
@@ -46,6 +49,7 @@ public class AllFabric extends AppCompatActivity {
         fabricList=new ArrayList<>();
         //fillFabricList();
         //fabricList = ((MainActivityAdmin)getActivity()).fillFabricList();
+        /*attaching backend variables to frontend xml with ids*/
         fabricRV= (RecyclerView) findViewById(R.id.recycleviewfabricscustomerall);
 
         back=findViewById(R.id.backButton);
@@ -53,6 +57,7 @@ public class AllFabric extends AppCompatActivity {
         String category= "";
         category=g.getCategory();
         final String finalCategory = category;
+        /*fetching fabrics data from database*/
         database.getReference("Fabric").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -122,6 +127,7 @@ public class AllFabric extends AppCompatActivity {
             }
         });
 
+        /*back button code*/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,6 +141,7 @@ public class AllFabric extends AppCompatActivity {
 
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

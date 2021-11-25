@@ -4,6 +4,7 @@ import android.app.Application;
 
 public class g extends Application {
 
+    //global members, to be accessed from anywhere in app code
     private static String userID;
     private static String userType;
     private static String customerID;
@@ -26,6 +27,7 @@ public class g extends Application {
     private static boolean isGoingToPending;
     private static int themeCode;
 
+    //getters and setters for global variables
     public static String getUserID() {
         return userID;
     }

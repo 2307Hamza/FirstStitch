@@ -29,6 +29,7 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class OrderDetails extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     private ImageView back;
 
     private ImageView fabricImage;
@@ -57,13 +58,16 @@ public class OrderDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_order_details);
         FullScreencall();
 
+        /*getting reference from firebase database*/
         database= FirebaseDatabase.getInstance();
         reference = database.getReference("Order");
 
+        /*attaching backend variables to frontend xml with ids*/
         fabricImage=findViewById(R.id.imageViewFabric);
         name=findViewById(R.id.fabricname);
         type=findViewById(R.id.fabrictype);
@@ -109,6 +113,7 @@ public class OrderDetails extends AppCompatActivity {
             }
         });*/
 
+        /*setting fabric dimensions content/values to resources (images/fields/etc)*/
         fabricImage.setBackgroundResource(R.drawable.framemainbgfill);
         Picasso.get().load(g.getOrder().getFabric().getImageURL()).transform(new RoundedCornersTransformation(30,0)).into(fabricImage);
         name.setText(g.getOrder().getFabric().getName());
@@ -128,6 +133,7 @@ public class OrderDetails extends AppCompatActivity {
         tailor.setText(tailorString);
         customer.setText(customerString);
 
+        /*disabling field listeners to give user a view only experience*/
         fabricImage.setEnabled(false);
         name.setKeyListener(null);
         cost.setKeyListener(null);
@@ -154,6 +160,7 @@ public class OrderDetails extends AppCompatActivity {
         tailor.setFocusable(false);
         customer.setFocusable(false);
 
+        /*updating order status resources*/
         if(g.getUserType().compareTo("customer")==0){
             if(g.getOrder().getStatus().compareTo("completed")==0){
                 changeState.setVisibility(View.VISIBLE);
@@ -172,6 +179,7 @@ public class OrderDetails extends AppCompatActivity {
             changeState.setVisibility(View.GONE);
         }
 
+        /*back button code for the activity*/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,6 +214,7 @@ public class OrderDetails extends AppCompatActivity {
             }
         });
 
+        /*change button code for the activity (allowed for tailors & customers)*/
         changeState.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,6 +226,7 @@ public class OrderDetails extends AppCompatActivity {
                         //remove the order
                         reference = database.getReference("Order").child(g.getOrder().getOrderID());
 
+                        /*making and displaying a confirmation dialogue box to the user*/
                         MaterialAlertDialogBuilder builder= new MaterialAlertDialogBuilder(OrderDetails.this);
                         builder.setTitle("Confirm Order Recieval");
                         builder.setMessage("Are you sure you have recieved this order?");
@@ -251,6 +261,7 @@ public class OrderDetails extends AppCompatActivity {
                         //update the order status to complete
                         reference = database.getReference("Order").child(g.getOrder().getOrderID());
 
+                        /*making and displaying a confirmation dialogue box to the user*/
                         MaterialAlertDialogBuilder builder= new MaterialAlertDialogBuilder(OrderDetails.this);
                         builder.setTitle("Confirm Order Completion");
                         builder.setMessage("Are you sure you have completed this order?");
@@ -306,6 +317,7 @@ public class OrderDetails extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

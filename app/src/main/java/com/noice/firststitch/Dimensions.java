@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 public class Dimensions extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     private EditText arm;
     private EditText shoulder;
     private EditText chest;
@@ -34,10 +35,12 @@ public class Dimensions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_dimensions);
         FullScreencall();
 
+        /*attaching backend variables to frontend xml with ids*/
         arm=findViewById(R.id.armlength);
         shoulder=findViewById(R.id.shoulderlength);
         chest=findViewById(R.id.chest);
@@ -55,6 +58,7 @@ public class Dimensions extends AppCompatActivity {
 
         suiteDimensions suiteDimensions=new suiteDimensions();
 
+        /*code to enable relative radio and disable others*/
         ladies.setChecked(true);
         ladies.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +85,7 @@ public class Dimensions extends AppCompatActivity {
             }
         });
 
+        /*back button code for the activity*/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,10 +96,12 @@ public class Dimensions extends AppCompatActivity {
             }
         });
 
+        /*confirm button code for the activity*/
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                /*checking if the input fields are empty and warning user about them*/
                 if(TextUtils.isEmpty(arm.getText()) || TextUtils.isEmpty(shoulder.getText()) || TextUtils.isEmpty(chest.getText()) ||
                         TextUtils.isEmpty(shirt.getText()) || TextUtils.isEmpty(waist.getText()) || TextUtils.isEmpty(leg.getText())
                 || TextUtils.isEmpty(instructions.getText())){
@@ -102,6 +109,7 @@ public class Dimensions extends AppCompatActivity {
                     return;
                 }
 
+                /*setting content/values of dimensions to front end resources (images/fields/etc)*/
                 suiteDimensions suiteDimensions=new suiteDimensions();
                 suiteDimensions.setArm(arm.getText().toString());
                 suiteDimensions.setChest(chest.getText().toString());
@@ -148,6 +156,7 @@ public class Dimensions extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

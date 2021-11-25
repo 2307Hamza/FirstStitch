@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class TailorlistAdaptor extends RecyclerView.Adapter<TailorlistAdaptor.TailorlistViewholder> {
+    /*declaring required variables for the adaptor*/
     List<Tailor> tailorList;
     Context context;
 
+    /*adaptor constructor*/
     public TailorlistAdaptor(List<Tailor> tailorList, Context context) {
         this.tailorList = tailorList;
         this.context = context;
@@ -25,12 +27,14 @@ public class TailorlistAdaptor extends RecyclerView.Adapter<TailorlistAdaptor.Ta
     @NonNull
     @Override
     public TailorlistViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        /*inflating row in recycler view*/
         View row= LayoutInflater.from(parent.getContext()).inflate(R.layout.tailorrow,parent,false);
         return new TailorlistViewholder(row,context);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TailorlistViewholder holder, int position) {
+        /*binding date onto the recycler view*/
 
         holder.username.setText(tailorList.get(position).getUsername());
         holder.phone.setText(tailorList.get(position).getPhone());
@@ -82,6 +86,7 @@ public class TailorlistAdaptor extends RecyclerView.Adapter<TailorlistAdaptor.Ta
             itemView.setOnClickListener(this);
         }
 
+        /*navigating to next activity if user confirms the tailor*/
         @Override
         public void onClick(View v) {
             //Toast.makeText(context,"tailor selected",Toast.LENGTH_SHORT).show();

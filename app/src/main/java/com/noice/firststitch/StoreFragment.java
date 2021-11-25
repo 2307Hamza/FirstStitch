@@ -86,6 +86,7 @@ public class StoreFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_store, container, false);
     }
 
+    /*declaring required variables for the fragment*/
     private List<Fabric> latestfabricList;
     private List<Fabric> seasonalfabricList;
     private RecyclerView latestfabricRV;
@@ -108,6 +109,7 @@ public class StoreFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        /*getting reference from firebase database*/
         database= FirebaseDatabase.getInstance();
         referenceUser = database.getReference("Customer").child(g.getCustomerID());
         referenceFabric = database.getReference("Fabric");
@@ -117,6 +119,7 @@ public class StoreFragment extends Fragment {
         latestfabricRV=(RecyclerView) view.findViewById(R.id.recycleviewLatestFabrics);
         fabricLatestAdaptor=new FabricLatestAdaptor(latestfabricList,getContext());
 
+        /*attaching backend variables to frontend xml with ids*/
         seasonalImage1=(ImageView) view.findViewById(R.id.imageViewSeasonalItem1);
         seasonalImage2=(ImageView) view.findViewById(R.id.imageViewSeasonalItem2);
         seasonalImage3=(ImageView) view.findViewById(R.id.imageViewSeasonalItem3);
@@ -128,6 +131,7 @@ public class StoreFragment extends Fragment {
         seasonalText3=view.findViewById(R.id.textViewSeasonalItem3);
         moreFabric=view.findViewById(R.id.textViewMorefabric);
 
+        /*various buttons code for the activity*/
         moreFabric.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -233,6 +237,7 @@ public class StoreFragment extends Fragment {
 
 
 
+        /*getting all fabric data from database*/
         database.getReference("Fabric").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -247,6 +252,7 @@ public class StoreFragment extends Fragment {
                 if(fabricToAdd.isSeasonal()){
                     seasonalfabricList.add(fabricToAdd);
 
+                    /*loading rabric image into picaso*/
                     if(seasonalfabricList.size()>2){
                         Picasso.get().load(seasonalfabricList.get(seasonalfabricList.size()-1).getImageURL()).transform(new RoundedCornersTransformation(20,0)).into(seasonalImage1);
                         Picasso.get().load(seasonalfabricList.get(seasonalfabricList.size()-2).getImageURL()).transform(new RoundedCornersTransformation(20,0)).into(seasonalImage2);
@@ -279,6 +285,7 @@ public class StoreFragment extends Fragment {
             }
         });
 
+        /*redundant timer code, most probably not used, it was going to scroll horizontal rv images*/
         new Timer().schedule(new TimerTask(){
             public void run() {
                 //((MainActivity)getActivity()).setSeasonalData(seasonalfabricList);

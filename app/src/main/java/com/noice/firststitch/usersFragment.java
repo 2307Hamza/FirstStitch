@@ -78,6 +78,7 @@ public class usersFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_users, container, false);
     }
 
+    /*declaring required variables for the fragment*/
     private List<User> userList;
     private RecyclerView userRV;
     private UserlistAdaptor userlistAdaptor;
@@ -88,12 +89,15 @@ public class usersFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        /*attaching backend variables to frontend xml with ids*/
         userRV= (RecyclerView) view.findViewById(R.id.recycleviewusersadmin);
+        /*getting reference from firebase database*/
         database= FirebaseDatabase.getInstance();
         referenceUser = database.getReference("Admin").child(g.getAdminID());
 
         userList=new ArrayList<>();
 
+        /*getting all customers data from database*/
         database.getReference("Customer").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -126,6 +130,7 @@ public class usersFragment extends Fragment {
             }
         });
 
+        /*getting all tailors data from database*/
         database.getReference("Tailor").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -158,6 +163,7 @@ public class usersFragment extends Fragment {
             }
         });
 
+        /*getting all admins data from database*/
         database.getReference("Admin").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {

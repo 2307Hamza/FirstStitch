@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Home extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     SharedPreferences sharedPreferences;
     String file="com.noice.firststitch";
     SharedPreferences.Editor editor;
@@ -30,9 +31,11 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*storing theme info in shared prefs*/
         sharedPreferences=getSharedPreferences(file,MODE_PRIVATE);
         editor=sharedPreferences.edit();
         editor.apply();
+        /*checking and setting theme resource file*/
         g.setThemeCode(sharedPreferences.getInt("t",0));
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
 
@@ -143,6 +146,7 @@ public class Home extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

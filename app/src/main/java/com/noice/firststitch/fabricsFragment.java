@@ -81,7 +81,7 @@ public class fabricsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_fabrics, container, false);
     }
 
-
+    /*declaring required variables for the activity*/
     ImageView addFabricFab;
 
     private List<Fabric> fabricList;
@@ -95,8 +95,10 @@ public class fabricsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        /*attaching backend variables to frontend xml with ids*/
         addFabricFab=view.findViewById(R.id.fabaddfabricadmin);
 
+        /*getting reference from firebase database*/
         database= FirebaseDatabase.getInstance();
         referenceUser = database.getReference("Admin").child(g.getAdminID());
         referenceFabric = database.getReference("Fabric");
@@ -104,8 +106,10 @@ public class fabricsFragment extends Fragment {
         fabricList=new ArrayList<>();
         //fillFabricList();
         //fabricList = ((MainActivityAdmin)getActivity()).fillFabricList();
+        /*attaching backend variables to frontend xml with ids*/
         fabricRV= (RecyclerView) view.findViewById(R.id.recycleviewfabricsadmin);
 
+        /*getting all fabric data from database*/
         database.getReference("Fabric").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -142,11 +146,13 @@ public class fabricsFragment extends Fragment {
         f.setName("name 4");
         f.setImageURL("https://firebasestorage.googleapis.com/v0/b/first-stich.appspot.com/o/FabricImage%2F2020-12-27%2012%3A06%3A56?alt=media&token=87d0f85c-47f8-4f01-bf22-c52a3de9401b");
         fabricList.add(f);*/
+        /*intializing recycler view*/
         fabricWholeAdaptor=new FabricWholeAdaptor(fabricList,getActivity());
         RecyclerView.LayoutManager layout= new GridLayoutManager(getActivity(),3);
         fabricRV.setLayoutManager(layout);
         fabricRV.setAdapter(fabricWholeAdaptor);
 
+        /*add button code for the activity*/
         addFabricFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

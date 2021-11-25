@@ -75,6 +75,7 @@ public class pendingordersFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_pendingorders, container, false);
     }
 
+    /*declaring required variables for the activity*/
     private List<Order> orderList;
     /*private List<Customer> customerList;
     private List<Tailor> tailorList;
@@ -101,14 +102,17 @@ public class pendingordersFragment extends Fragment {
         //referenceUser = database.getReference("Admin").child(g.getAdminID());
         //referenceFabric = database.getReference("Fabric");
 
+        /*attaching backend variables to frontend xml with ids*/
         ordersRV= (RecyclerView) view.findViewById(R.id.recycleviewpendingorders);
         ordersRV.setHasFixedSize(false);
 
+        /*intializing recycler view*/
         orderlistAdaptor=new OrderlistAdaptor(orderList,getActivity());
         RecyclerView.LayoutManager layout= new LinearLayoutManager(getActivity());
         ordersRV.setLayoutManager(layout);
         ordersRV.setAdapter(orderlistAdaptor);
 
+        /*getting all orders data from database*/
         database.getReference("Order").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -131,6 +135,7 @@ public class pendingordersFragment extends Fragment {
 
 
                 //while (orderList.size()<1 || tailorList.size()<1 || customerList.size()<1 || fabricList.size()<1);
+                /*updating recycler view*/
                 orderlistAdaptor=new OrderlistAdaptor(orderList,getActivity());
                 orderlistAdaptor.notifyDataSetChanged();
                 ordersRV.setAdapter(orderlistAdaptor);

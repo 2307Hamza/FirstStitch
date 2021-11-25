@@ -83,6 +83,8 @@ public class profileFragment extends Fragment {
 
 
     }
+
+    /*declaring required variables for the fragment*/
     private ImageView edit;
     private ImageView logout;
     private TextView logoutText;
@@ -118,6 +120,7 @@ public class profileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        /*attaching backend variables to frontend xml with ids*/
         edit=view.findViewById(R.id.imageEditProfile);
         logout=view.findViewById(R.id.imageViewLogo);
         logoutText=view.findViewById(R.id.textLogout);
@@ -133,6 +136,7 @@ public class profileFragment extends Fragment {
         limeDark=view.findViewById(R.id.themeLimeDark);
         blackDark=view.findViewById(R.id.themeBlackDark);
 
+        /*applying relevant theme resources*/
         sharedPreferences=getActivity().getSharedPreferences(file,MODE_PRIVATE);
         editor=sharedPreferences.edit();
         editor.apply();
@@ -219,6 +223,7 @@ public class profileFragment extends Fragment {
             }
         });
 
+        /*setting relevant expertise resources for tailor*/
         if(g.getUserType().compareTo("tailor")==0){
             specialityIcon.setVisibility(View.VISIBLE);
             speciality.setVisibility(View.VISIBLE);
@@ -259,6 +264,7 @@ public class profileFragment extends Fragment {
         }
 
 
+        /*edit button code for the activity*/
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,6 +277,7 @@ public class profileFragment extends Fragment {
             }
         });
 
+        /*logout button code for the activity*/
         logoutText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,6 +1,7 @@
 package com.noice.firststitch;
 
 public class Fabric {
+    //members
     private String fabricID;
     private String imageURL;
     private String name;
@@ -11,6 +12,7 @@ public class Fabric {
     private boolean isSeasonal;
     private boolean isLatest;
 
+    //constructors
     public Fabric(String fabricID, String imageURL, String name, String type, String color, String cost, String description, boolean isSeasonal, boolean isLatest) {
         this.fabricID = fabricID;
         this.imageURL = imageURL;
@@ -26,6 +28,7 @@ public class Fabric {
     public Fabric() {
     }
 
+    //getters and setters
     public String getFabricID() {
         return fabricID;
     }

@@ -28,6 +28,7 @@ import java.util.List;
 
 public class MainActivityAdmin extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     private BottomNavigationView mainNav;
     private FrameLayout mainFrame;
 
@@ -47,10 +48,12 @@ public class MainActivityAdmin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_main_admin);
         FullScreencall();
 
+        /*attaching backend variables to frontend xml with ids*/
         mainNav= (BottomNavigationView) findViewById(R.id.main_navadmin);
         mainFrame= (FrameLayout) findViewById(R.id.mainframeadmin);
         fabricsFragment=new fabricsFragment();
@@ -59,6 +62,8 @@ public class MainActivityAdmin extends AppCompatActivity {
         completedordersFragment=new completedordersFragment();
         profileFragment=new profileFragment();
         setFragment(fabricsFragment);
+
+        /*navigating to different order type activities*/
         if(g.isIsGoingToCompleted()){
             g.setIsGoingToCompleted(false);
             setFragment(completedordersFragment);
@@ -67,6 +72,7 @@ public class MainActivityAdmin extends AppCompatActivity {
             setFragment(pendingordersFragment);
         }
 
+        /*getting reference from firebase database*/
         database=FirebaseDatabase.getInstance();
         referenceUser = database.getReference("Admin").child(g.getAdminID());
         referenceFabric = database.getReference("Fabric");
@@ -80,6 +86,7 @@ public class MainActivityAdmin extends AppCompatActivity {
         fabricRV.setAdapter(fabricWholeAdaptor);*/
 
 
+        /*navigation buttons listener code for the activity*/
         mainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -113,6 +120,7 @@ public class MainActivityAdmin extends AppCompatActivity {
 
     }
 
+    /*getting all fabrics data from database*/
     public List<Fabric> fillFabricList() {
         referenceFabric.addChildEventListener(new ChildEventListener() {
             @Override
@@ -145,6 +153,7 @@ public class MainActivityAdmin extends AppCompatActivity {
     }
 
 
+    /*setting fragment for the parent activity*/
     private void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.mainframeadmin,fragment);
@@ -157,6 +166,7 @@ public class MainActivityAdmin extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

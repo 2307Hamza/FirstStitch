@@ -1,6 +1,7 @@
 package com.noice.firststitch;
 
 public class Order {
+    //members
     private String orderID;
     //private String customerID;
     //private String tailorID;
@@ -12,6 +13,7 @@ public class Order {
     private String cost;
     private String status;
 
+    //constructors
     public Order(String orderID, Customer customer, Tailor tailor, Fabric fabric, suiteDimensions dimensions, String cost, String status) {
         this.orderID = orderID;
         this.customer = customer;
@@ -25,6 +27,7 @@ public class Order {
     public Order() {
     }
 
+    //getters and setters
     public String getOrderID() {
         return orderID;
     }

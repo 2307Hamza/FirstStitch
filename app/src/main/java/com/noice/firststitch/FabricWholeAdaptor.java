@@ -20,9 +20,11 @@ import java.util.List;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class FabricWholeAdaptor extends RecyclerView.Adapter<FabricWholeAdaptor.FabricWholeViewHolder> {
+    /*declaring required variables for the adaptor*/
     private Context context;
     private List<Fabric> fabricList;
 
+    /*adaptor constructor*/
     public FabricWholeAdaptor(List<Fabric> fabricList,Context context) {
         this.fabricList = fabricList;
         this.context = context;
@@ -31,12 +33,14 @@ public class FabricWholeAdaptor extends RecyclerView.Adapter<FabricWholeAdaptor.
     @NonNull
     @Override
     public FabricWholeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        /*inflating row in recycler view*/
         View row= LayoutInflater.from(parent.getContext()).inflate(R.layout.fabricwholerow,parent,false);
         return new FabricWholeViewHolder(row,context);
     }
 
     @Override
     public void onBindViewHolder(@NonNull FabricWholeViewHolder holder, int position) {
+        /*binding date onto the recycler view*/
         holder.fabricName.setText(fabricList.get(position).getName());
         //Glide.with(context).load(fabricList.get(position).getImageURL()).into(holder.fabricImage);
         Picasso.get().load(fabricList.get(position).getImageURL()).transform(new RoundedCornersTransformation(30,0)).into(holder.fabricImage);
@@ -61,16 +65,17 @@ public class FabricWholeAdaptor extends RecyclerView.Adapter<FabricWholeAdaptor.
             itemView.setOnClickListener(this);
         }
 
+        /*going to fabric details upon click*/
         @Override
         public void onClick(View v) {
-            if(g.getUserType().compareTo("admin")==0){
+            if(g.getUserType().compareTo("admin")==0){ /*going to admin related aditable activity */
                 g.setIsEditing(true);
                 g.setFabric(fabricList.get(getAdapterPosition()));
                 g.setFabricID(g.getFabric().getFabricID());
                 Intent intent=new Intent(context,FabricDetails.class);
                 context.startActivity(intent);
                 return;
-            }else if(g.getUserType().compareTo("customer")==0){
+            }else if(g.getUserType().compareTo("customer")==0){ /*going to customer related viewonly activity*/
                 g.setIsComingFromAllFabric(true);
                 g.setFabric(fabricList.get(getAdapterPosition()));
                 g.setFabricID(g.getFabric().getFabricID());

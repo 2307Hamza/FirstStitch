@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class profile extends AppCompatActivity {
+    /*declaring required variables for the activity*/
     private EditText username;
     private EditText phone;
     private EditText address;
@@ -31,10 +32,12 @@ public class profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_profile);
         FullScreencall();
 
+        /*attaching backend variables to frontend xml with ids*/
         username=findViewById(R.id.username);
         phone=findViewById(R.id.phone);
         address=findViewById(R.id.address);
@@ -46,6 +49,7 @@ public class profile extends AppCompatActivity {
 
         database=FirebaseDatabase.getInstance();
 
+        /*getting user relevant reference from firebase database*/
         if(g.getUserType().compareTo("tailor") == 0){
             specialitySection.setVisibility(View.VISIBLE);
             reference = database.getReference("Tailor").child(g.getTailorID());
@@ -55,6 +59,7 @@ public class profile extends AppCompatActivity {
             reference = database.getReference("Admin").child(g.getAdminID());
         }
 
+        /*disabling/enabling fields for relevant users*/
         if(g.isIsEditing()){
             g.setIsEditing(false);
             if(g.getUserType().compareTo("tailor") == 0){
@@ -111,10 +116,12 @@ public class profile extends AppCompatActivity {
             }
         }
 
+        /*save button code for the activity*/
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                /*checking if the input fields are empty and warning user about them*/
                 if(TextUtils.isEmpty(username.getText()) || TextUtils.isEmpty(phone.getText()) || TextUtils.isEmpty(username.getText())){
                     Toast.makeText(getApplicationContext(),"Please input all fields.", Toast.LENGTH_SHORT).show();
                     return;
@@ -148,6 +155,7 @@ public class profile extends AppCompatActivity {
 
                     reference.setValue(tailor);
 
+                    /*storing tailor data to database*/
                     reference=database.getReference("Usertype").child(g.getTailorID());
                     reference.setValue("tailor");
 
@@ -169,6 +177,7 @@ public class profile extends AppCompatActivity {
 
                     reference.setValue(customer);
 
+                    /*storing customer data to database*/
                     reference=database.getReference("Usertype").child(g.getCustomerID());
                     reference.setValue("customer");
 
@@ -189,6 +198,7 @@ public class profile extends AppCompatActivity {
 
                     reference.setValue(admin);
 
+                    /*storing admin data to database*/
                     reference=database.getReference("Usertype").child(g.getAdminID());
                     reference.setValue("admin");
 
@@ -212,6 +222,7 @@ public class profile extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

@@ -2,12 +2,14 @@ package com.noice.firststitch;
 
 public class Tailor {
 
+    //members
     private String tailorID;
     private String username;
     private String phone;
     private String address;
     private int speciality;  //0 none, 1 ladies, 2 gents, 3 kids, 4 ladies gents, 5 ladies kids, 6 gents kids, 7 ladies gents kids
 
+    //constructors
     public Tailor(String tailorID, String username, String phone, String address, int speciality) {
         this.tailorID = tailorID;
         this.username = username;
@@ -19,6 +21,7 @@ public class Tailor {
     public Tailor() {
     }
 
+    //getters and setters
     public String getTailorID() {
         return tailorID;
     }

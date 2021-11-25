@@ -21,9 +21,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class OrderlistAdaptor extends RecyclerView.Adapter<OrderlistAdaptor.OrderlistViewholder> {
+    /*declaring required variables for the adaptor*/
     private List<Order> orderList;
     private Context context;
 
+    /*adaptor constructor*/
     public OrderlistAdaptor(List<Order> orderList, Context context) {
         this.orderList = orderList;
         this.context = context;
@@ -32,16 +34,18 @@ public class OrderlistAdaptor extends RecyclerView.Adapter<OrderlistAdaptor.Orde
     @NonNull
     @Override
     public OrderlistViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        /*inflating row in recycler view*/
         View row= LayoutInflater.from(parent.getContext()).inflate(R.layout.orderrow,parent,false);
         return new OrderlistViewholder(row,context);
     }
 
     @Override
     public void onBindViewHolder(@NonNull OrderlistViewholder holder, int position) {
+        /*binding date onto the recycler view*/
 
         //while (orderList.size()<1 || tailorList.size()<1 || customerList.size()<1 || fabricList.size()<1);
 
-        if(g.getUserType().compareTo("customer")==0){
+        if(g.getUserType().compareTo("customer")==0){ /*binding user relevant data*/
             if(orderList.get(position).getCustomer().getCustomerID().compareTo(g.getCustomerID())==0){
                 holder.tailorname.setText(orderList.get(position).getTailor().getUsername());
                 holder.tailorphone.setText(orderList.get(position).getTailor().getPhone());
@@ -61,10 +65,10 @@ public class OrderlistAdaptor extends RecyclerView.Adapter<OrderlistAdaptor.Orde
             }else{
                 holder.orderItem.setVisibility(View.GONE);
             }
-        }else if(g.getUserType().compareTo("tailor")==0){
+        }else if(g.getUserType().compareTo("tailor")==0){ /*binding tailor relevant data*/
             if(orderList.get(position).getTailor().getTailorID().compareTo(g.getTailorID())==0){
 
-                if(g.getOrderFragmentType().compareTo("pending")==0){
+                if(g.getOrderFragmentType().compareTo("pending")==0){ /*binding relevant data for pending orders*/
                     if(orderList.get(position).getStatus().compareTo("pending")==0){
                         holder.tailorname.setText(orderList.get(position).getTailor().getUsername());
                         holder.tailorphone.setText(orderList.get(position).getTailor().getPhone());
@@ -80,7 +84,7 @@ public class OrderlistAdaptor extends RecyclerView.Adapter<OrderlistAdaptor.Orde
                     }else{
                         holder.orderItem.setVisibility(View.GONE);
                     }
-                }else if(g.getOrderFragmentType().compareTo("completed")==0){
+                }else if(g.getOrderFragmentType().compareTo("completed")==0){ /*binding relevant data for completed orders*/
                     if(orderList.get(position).getStatus().compareTo("completed")==0){
                         holder.tailorname.setText(orderList.get(position).getTailor().getUsername());
                         holder.tailorphone.setText(orderList.get(position).getTailor().getPhone());
@@ -103,9 +107,9 @@ public class OrderlistAdaptor extends RecyclerView.Adapter<OrderlistAdaptor.Orde
             }else{
                 holder.orderItem.setVisibility(View.GONE);
             }
-        }else if(g.getUserType().compareTo("admin")==0){
+        }else if(g.getUserType().compareTo("admin")==0){ /*binding admin relevant data*/
             if(g.getOrderFragmentType().compareTo("pending")==0){
-                if(orderList.get(position).getStatus().compareTo("pending")==0){
+                if(orderList.get(position).getStatus().compareTo("pending")==0){ /*binding relevant data for pending orders*/
                     holder.tailorname.setText(orderList.get(position).getTailor().getUsername());
                     holder.tailorphone.setText(orderList.get(position).getTailor().getPhone());
                     holder.customername.setText(orderList.get(position).getCustomer().getUsername());
@@ -120,7 +124,7 @@ public class OrderlistAdaptor extends RecyclerView.Adapter<OrderlistAdaptor.Orde
                 }else{
                     holder.orderItem.setVisibility(View.GONE);
                 }
-            }else if(g.getOrderFragmentType().compareTo("completed")==0){
+            }else if(g.getOrderFragmentType().compareTo("completed")==0){ /*binding relevant data for completed orders*/
                 if(orderList.get(position).getStatus().compareTo("completed")==0){
                     holder.tailorname.setText(orderList.get(position).getTailor().getUsername());
                     holder.tailorphone.setText(orderList.get(position).getTailor().getPhone());

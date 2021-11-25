@@ -33,6 +33,7 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class ConfirmOrder extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     private ImageView back;
 
     private ImageView fabricImage;
@@ -61,13 +62,16 @@ public class ConfirmOrder extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_confirm_order);
         FullScreencall();
 
+        /*getting reference from firebase database*/
         database= FirebaseDatabase.getInstance();
         reference = database.getReference("Order");
 
+        /*attaching backend variables to frontend xml with ids*/
         fabricImage=findViewById(R.id.imageViewFabric);
         name=findViewById(R.id.fabricname);
         type=findViewById(R.id.fabrictype);
@@ -101,6 +105,7 @@ public class ConfirmOrder extends AppCompatActivity {
             }
         });
 
+        /*getting all customer data from database*/
         database.getReference("Customer").child(g.getCustomerID()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -113,6 +118,7 @@ public class ConfirmOrder extends AppCompatActivity {
             }
         });
 
+        /*setting content/values to resources (images/fields/etc)*/
         fabricImage.setBackgroundResource(R.drawable.framemainbgfill);
         Picasso.get().load(g.getFabric().getImageURL()).transform(new RoundedCornersTransformation(30,0)).into(fabricImage);
         name.setText(g.getFabric().getName());
@@ -132,6 +138,7 @@ public class ConfirmOrder extends AppCompatActivity {
         tailor.setText(tailorString);
         customer.setText(customerString);
 
+        /*disabling radio and check buttons and fields so customer can only view them and not edit them*/
         fabricImage.setEnabled(false);
         name.setKeyListener(null);
         cost.setKeyListener(null);
@@ -158,6 +165,7 @@ public class ConfirmOrder extends AppCompatActivity {
         tailor.setFocusable(false);
         customer.setFocusable(false);
 
+        /*back button code for the activity*/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,13 +176,16 @@ public class ConfirmOrder extends AppCompatActivity {
             }
         });
 
+        /*confirm button code for the activity*/
         confirmOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //place order online
 
+                /*getting reference from firebase database*/
                 reference = database.getReference("Order");
 
+                /*setting content/values to resources (images/fields/etc)*/
                 final Order order=new Order();
                 order.setCost(cost.getText().toString());
                 order.setCustomer(g.getCustomer());
@@ -189,6 +200,7 @@ public class ConfirmOrder extends AppCompatActivity {
                 snackBar.setActionTextColor(getResources().getColor(R.color.cmain));
                 View snackBarView = snackBar.getView();*/
 
+                /*making and displaying a confirmation dialogue box to the user*/
                 MaterialAlertDialogBuilder builder= new MaterialAlertDialogBuilder(ConfirmOrder.this);
                 builder.setTitle("Confirm Order");
                 builder.setMessage("Are you sure you want to place this order?");
@@ -227,6 +239,7 @@ public class ConfirmOrder extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

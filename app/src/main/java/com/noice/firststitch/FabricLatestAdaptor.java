@@ -18,9 +18,11 @@ import java.util.List;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class FabricLatestAdaptor extends RecyclerView.Adapter<FabricLatestAdaptor.FabricLatestViewHolder> {
+    /*declaring required variables for the adaptor*/
     private Context context;
     private List<Fabric> fabricList;
 
+    /*consturctor for adaptor*/
     public FabricLatestAdaptor(List<Fabric> fabricList, Context context) {
         this.fabricList = fabricList;
         this.context = context;
@@ -29,12 +31,14 @@ public class FabricLatestAdaptor extends RecyclerView.Adapter<FabricLatestAdapto
     @NonNull
     @Override
     public FabricLatestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        /*inflating row in recycler view*/
         View row= LayoutInflater.from(parent.getContext()).inflate(R.layout.latestfabricrow,parent,false);
         return new FabricLatestViewHolder(row,context);
     }
 
     @Override
     public void onBindViewHolder(@NonNull FabricLatestViewHolder holder, int position) {
+        /*binding date onto the recycler view*/
         g.setRvCurrentIndex(position);
         g.setRvSize(fabricList.size());
         holder.fabricName.setText(fabricList.get(position).getName());
@@ -64,6 +68,7 @@ public class FabricLatestAdaptor extends RecyclerView.Adapter<FabricLatestAdapto
             itemView.setOnClickListener(this);
         }
 
+        /*going to fabric detail activity upon click on fabric*/
         @Override
         public void onClick(View v) {
             g.setIsEditing(true);

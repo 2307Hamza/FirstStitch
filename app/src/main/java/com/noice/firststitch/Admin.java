@@ -2,11 +2,13 @@ package com.noice.firststitch;
 
 public class Admin {
 
+    //members
     private String adminID;
     private String username;
     private String phone;
     private String address;
 
+    //constructors
     public Admin(String adminID, String username, String phone, String address) {
         this.adminID = adminID;
         this.username = username;
@@ -17,6 +19,7 @@ public class Admin {
     public Admin() {
     }
 
+    //getters and setters
     public String getAdminID() {
         return adminID;
     }

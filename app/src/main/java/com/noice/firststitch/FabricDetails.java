@@ -46,6 +46,7 @@ import static java.text.DateFormat.getDateTimeInstance;
 
 public class FabricDetails extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     private ImageView fabricImage;
     private EditText name;
     private EditText type;
@@ -66,10 +67,12 @@ public class FabricDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_fabric_details);
         FullScreencall();
 
+        /*attaching backend variables to frontend xml with ids*/
         fabricImage=findViewById(R.id.imageViewFabric);
         name=findViewById(R.id.fabricname);
         type=findViewById(R.id.fabrictype);
@@ -80,11 +83,13 @@ public class FabricDetails extends AppCompatActivity {
         isLatest=findViewById(R.id.checkboxlatest);
         save=findViewById(R.id.buttonSaveFabricDetails);
         back=findViewById(R.id.backButton);
+        /*getting reference from firebase database*/
         storageReference = FirebaseStorage.getInstance().getReference().child("FabricImage");
         database=FirebaseDatabase.getInstance();
         reference = database.getReference("Fabric");
 
 
+        /*checking if user is editing the details (that will be admin) and enabling the fields for edits in case its true*/
         if(g.isIsEditing()){
             g.setIsEditing(false);
             fabricImage.setBackgroundResource(R.drawable.framemainbgfill);
@@ -107,6 +112,7 @@ public class FabricDetails extends AppCompatActivity {
             save.setText("Update");
         }
 
+        /*picking an image for the fabric*/
         fabricImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +122,7 @@ public class FabricDetails extends AppCompatActivity {
             }
         });
 
+        /*back button code for the activity*/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,17 +150,19 @@ public class FabricDetails extends AppCompatActivity {
             }
         });
 
+        /*save button code for the activity*/
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                /*checking if the input fields are empty and warning user about them*/
                 if(uriFabric==null || TextUtils.isEmpty(name.getText()) || TextUtils.isEmpty(type.getText()) || TextUtils.isEmpty(color.getText())
                         || TextUtils.isEmpty(cost.getText()) || TextUtils.isEmpty(description.getText()) ){
                     Toast.makeText(getApplicationContext(),"Please input all the fields",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                /*setting content/values to fabric detail resources (images/fields/etc)*/
                 final Fabric fabric=new Fabric();
                 fabric.setName(name.getText().toString());
                 fabric.setType(type.getText().toString());
@@ -171,6 +180,7 @@ public class FabricDetails extends AppCompatActivity {
                     fabric.setLatest(false);
                 }
 
+                /*making and displaying a confirmation dialogue box to the user*/
                 MaterialAlertDialogBuilder builder= new MaterialAlertDialogBuilder(FabricDetails.this);
                 builder.setTitle("Confirm Changes");
                 builder.setMessage("Are you sure you want to add/update this fabric?");
@@ -179,6 +189,7 @@ public class FabricDetails extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         final String currentTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
                         if(g.isIsEditing()){
+                            /*getting reference from firebase database and updating details on it*/
                             storageReference.child(currentTime).putFile(uriFabric).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -201,6 +212,7 @@ public class FabricDetails extends AppCompatActivity {
                                 }
                             });
                         }else {
+                            /*getting reference from firebase database and adding fabric details on it*/
                             storageReference.child(currentTime).putFile(uriFabric).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -255,6 +267,7 @@ public class FabricDetails extends AppCompatActivity {
         }
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

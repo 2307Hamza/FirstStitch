@@ -23,7 +23,7 @@ import java.util.List;
 
 public class chooseTailor extends AppCompatActivity {
 
-
+    /*declaring required variables for the activity*/
     private ImageView back;
 
     private RecyclerView tailorsRv;
@@ -35,10 +35,12 @@ public class chooseTailor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_choose_tailor);
         FullScreencall();
 
+        /*getting reference from firebase database*/
         database= FirebaseDatabase.getInstance();
         referenceUser = database.getReference("Customer").child(g.getCustomerID());
 
@@ -46,6 +48,7 @@ public class chooseTailor extends AppCompatActivity {
 
         tailorsRv=(RecyclerView) findViewById(R.id.recycleviewchoosetailors);
 
+        /*fetching tailors data from database*/
         database.getReference("Tailor").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -78,6 +81,7 @@ public class chooseTailor extends AppCompatActivity {
             }
         });
 
+        /*back button code*/
         back=findViewById(R.id.backButton);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +102,7 @@ public class chooseTailor extends AppCompatActivity {
         FullScreencall();
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();

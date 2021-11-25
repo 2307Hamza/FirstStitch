@@ -28,6 +28,7 @@ import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class FabricDetailsCustomer extends AppCompatActivity {
 
+    /*declaring required variables for the activity*/
     private ImageView fabricImage;
     private EditText name;
     private EditText type;
@@ -45,10 +46,12 @@ public class FabricDetailsCustomer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*checking and setting theme resource file*/
         if(g.getThemeCode()==0){setTheme(R.style.pinkTheme);}else if(g.getThemeCode()==1){setTheme(R.style.limeTheme);}else if(g.getThemeCode()==2){setTheme(R.style.blackTheme);}else if(g.getThemeCode()==3){setTheme(R.style.pinkThemeDark);}else if(g.getThemeCode()==4){setTheme(R.style.limeThemeDark);}else if(g.getThemeCode()==5){setTheme(R.style.blackThemeDark);}
         setContentView(R.layout.activity_fabric_details_customer);
         FullScreencall();
 
+        /*attaching backend variables to frontend xml with ids*/
         fabricImage=findViewById(R.id.imageViewFabric);
         name=findViewById(R.id.fabricname);
         type=findViewById(R.id.fabrictype);
@@ -58,10 +61,12 @@ public class FabricDetailsCustomer extends AppCompatActivity {
         select=findViewById(R.id.buttonSelectFabric);
         back=findViewById(R.id.backButton);
 
+        /*getting reference from firebase database*/
         storageReference = FirebaseStorage.getInstance().getReference().child("FabricImage");
         database=FirebaseDatabase.getInstance();
         reference = database.getReference("Fabric");
 
+        /*getting all fabric data from database*/
         database.getReference("Fabric").child(g.getFabricID()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -74,6 +79,7 @@ public class FabricDetailsCustomer extends AppCompatActivity {
             }
         });
 
+        /*setting fabric content/values to resources (images/fields/etc)*/
         fabricImage.setBackgroundResource(R.drawable.framemainbgfill);
         Picasso.get().load(g.getFabric().getImageURL()).transform(new RoundedCornersTransformation(30,0)).into(fabricImage);
         name.setText(g.getFabric().getName());
@@ -82,6 +88,7 @@ public class FabricDetailsCustomer extends AppCompatActivity {
         cost.setText(g.getFabric().getCost());
         description.setText(g.getFabric().getDescription());
 
+        /*disabling focus on fields so customer has a viewonly experience*/
         fabricImage.setEnabled(false);
         name.setKeyListener(null);
         cost.setKeyListener(null);
@@ -100,6 +107,7 @@ public class FabricDetailsCustomer extends AppCompatActivity {
         description.setHintTextColor(name.getCurrentHintTextColor());
         name.setHintTextColor(name.getCurrentHintTextColor());*/
 
+        /*select button code for the activity*/
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +120,7 @@ public class FabricDetailsCustomer extends AppCompatActivity {
             }
         });
 
+        /*back button code for the activity*/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +140,7 @@ public class FabricDetailsCustomer extends AppCompatActivity {
         });
     }
 
+    /*function to fullscreen activity*/
     public void FullScreencall() {
         if(Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();
